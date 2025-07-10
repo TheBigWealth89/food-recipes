@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Recipe Finder App Theme
+   * Modern, food-focused design with warm and appetizing colors
+  */
+  :root {
+    /* Base colors - warm cream and charcoal */
+    --background: 42 100% 98%;
+    --foreground: 210 11% 15%;
+
+    /* Cards with subtle warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    /* Popovers */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    /* Primary - warm orange/red gradient */
+    --primary: 16 100% 66%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - soft peach */
+    --secondary: 24 100% 95%;
+    --secondary-foreground: 210 11% 15%;
+
+    /* Muted - warm neutral */
+    --muted: 42 33% 95%;
+    --muted-foreground: 210 11% 45%;
+
+    /* Accent - vibrant green for fresh ingredients */
+    --accent: 142 69% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive - deep red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 42 33% 90%;
+    --input: 42 33% 90%;
+    --ring: 16 100% 66%;
+
+    /* Border radius for modern look */
+    --radius: 0.75rem;
+
+    /* Success color for favorites/actions */
+    --success: 142 69% 58%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning for dietary restrictions */
+    --warning: 45 93% 62%;
+    --warning-foreground: 210 11% 15%;
+  }
+
+  .dark {
+    /* Dark mode - deep, rich colors */
+    --background: 210 11% 7%;
+    --foreground: 42 100% 98%;
+
+    --card: 210 11% 10%;
+    --card-foreground: 42 100% 98%;
+
+    --popover: 210 11% 10%;
+    --popover-foreground: 42 100% 98%;
+
+    /* Primary - slightly muted in dark mode */
+    --primary: 16 88% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - darker warm tone */
+    --secondary: 210 11% 15%;
+    --secondary-foreground: 42 100% 98%;
+
+    /* Muted */
+    --muted: 210 11% 15%;
+    --muted-foreground: 42 33% 70%;
+
+    /* Accent - slightly muted green */
+    --accent: 142 69% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 210 11% 20%;
+    --input: 210 11% 20%;
+    --ring: 16 88% 62%;
+
+    /* Success */
+    --success: 142 69% 48%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 45 85% 58%;
+    --warning-foreground: 210 11% 7%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Recipe App specific styles */
+
+  .recipe-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .recipe-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* Glassmorphism effect for modern look */
+  .glass {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer components {
+  /* Custom recipe card styles */
+  .recipe-card {
+    @apply recipe-card-hover bg-card border border-border rounded-xl overflow-hidden shadow-sm;
+  }
+
+  .recipe-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .recipe-badge-primary {
+    @apply recipe-badge bg-primary/10 text-primary;
+  }
+
+  .recipe-badge-secondary {
+    @apply recipe-badge bg-secondary text-secondary-foreground;
+  }
+
+  .recipe-badge-success {
+    @apply recipe-badge bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400;
+  }
+
+  /* Search styles */
+  .search-input {
+    @apply w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors;
+  }
+
+  /* Responsive utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Loading spinner */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-2 border-muted-foreground border-t-primary;
+  }
+}
