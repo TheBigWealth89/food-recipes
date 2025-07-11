@@ -2,6 +2,8 @@
 
 A modern, responsive Recipe Finder web application built with React, TypeScript, and TheMealDB API. Discover thousands of recipes from around the world with advanced search and filtering capabilities.
 
+🌍 **Live Demo**: [https://recipes-finderx.netlify.app/](https://recipes-finderx.netlify.app/)
+
 ## 🌟 Features
 
 - **Recipe Search**: Search recipes by name or ingredients

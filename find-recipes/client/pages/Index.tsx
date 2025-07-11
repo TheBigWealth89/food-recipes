@@ -209,28 +209,6 @@ export default function Index() {
               </div>
             </form>
 
-            {/* Filter Button */}
-            <div className="flex justify-center">
-              <Button
-                variant="outline"
-                onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2"
-              >
-                <Filter className="h-4 w-4" />
-                Filters
-                {Object.keys(searchFilters).some(
-                  (key) => searchFilters[key],
-                ) && (
-                  <Badge
-                    variant="secondary"
-                    className="ml-1 h-5 w-5 p-0 text-xs"
-                  >
-                    {Object.values(searchFilters).filter(Boolean).length}
-                  </Badge>
-                )}
-              </Button>
-            </div>
-
             {/* Filters Panel */}
             {showFilters && (
               <div className="bg-card border border-border rounded-xl p-6 space-y-4">
